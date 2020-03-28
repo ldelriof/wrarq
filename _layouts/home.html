@@ -7,19 +7,16 @@
 <body>
     <!-- {{ content }} -->
 <script type="text/javascript">   
-var is_root = location.pathname == "/";
+var root = location.pathname;
 
-if(is_root) {
 let projs = []
 {% for p in site.projects %}
 projs.push("{{p.url}}")
 {% endfor %}
 
-console.log(projs)
 var proj = projs[Math.floor(Math.random() * projs.length)];
-window.location.href = proj;
+window.location.href = root + proj;
 
-}
 </script>
 </body>
 </html>

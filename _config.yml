@@ -1,11 +1,17 @@
 ---
 title: WRARQ
+timezone: UTC
 collections:
-  uploads:
-    title: Uploads
-    output: true
+  menu:
+    title: Menu
+    output: false
+    label: menu
   projects:
     title: PROJETOS
     output: true
-  menu:
-    label: menu
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true

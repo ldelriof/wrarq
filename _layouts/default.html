@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/foundation.min.css' | absolute_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/font-awesome.min.css' | absolute_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/foundation.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/font-awesome.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
   <div class="slider">
     {% for img in page.images %}
       <div class="slide" style="display: none;">
-        <div class="image" style="background-image: url('{{ img | absolute_url }}')"></div>
+        <div class="image" style="background-image: url('{{ img | relative_url }}')"></div>
         <span class="helper"></span>
       </div>
     {% endfor %}
@@ -23,8 +23,8 @@
   </div>
 
   <div class="wrapper row collapse single_post">
-  <div class="head"><a href="{{ '/' | absolute_url }}">
-  <img src="{{ '/assets/img/logo.png' | absolute_url }}">
+  <div class="head"><a href="{{ '/' | relative_url }}">
+  <img src="{{ '/assets/img/logo.png' | relative_url }}">
   </a></div>
 
     <div class="columns small-6 medium-9">
@@ -58,7 +58,7 @@
               <a>{{m.name}}</a>
               <ul>
               {% for p in site.projects %}
-                <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+                <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
               {% endfor %}
               </ul>
             </li>
@@ -93,9 +93,9 @@
   <div class="footer">
   </div>
 
-  <script src="{{ '/assets/js/jquery.js' | absolute_url }}"></script>
-  <script src="{{ '/assets/js/foundation.min.js' | absolute_url }}"></script>
-  <script src="{{ '/assets/js/code.js' | absolute_url }}"></script>
+  <script src="{{ '/assets/js/jquery.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/foundation.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/code.js' | relative_url }}"></script>
   <script type="text/javascript">
   $(document).foundation();
   </script>

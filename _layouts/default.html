@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/foundation.min.css">
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="slider">
+    {% for img in page.images %}
+      <div class="slide" style="display: none;">
+        <div class="image" style="background-image: url('{{ img }}')"></div>
+        <span class="helper"></span>
+      </div>
+    {% endfor %}
+    <div class="dots">
+    {% for img in page.images %}
+      <div class="dot"><i class="fa fa-circle"></i></div>
+    {% endfor %}
+    </div>
+  </div>
+
+  <div class="wrapper row collapse single_post">
+  <div class="head"><a href="/">
+  <img src="/assets/img/logo.png">
+  </a></div>
+
+    <div class="columns small-6 medium-9">
+      &nbsp;
+    </div>
+
+    <div class="columns small-6 medium-3 text-right top_center">
+      <div class="columns black-bar description">
+        <div class="close fa fa-close"></div>
+        <div class="content">
+            {{ content }}
+        </div>
+      </div>
+
+      {% for m in site.data.menu %}
+        {% if m.page != "projects" %}
+        <div class="columns black-bar {{m.page}}">
+          <div class="close fa fa-close"></div>
+          <div class="content">
+          {% include {{ m.page | append: ".html" }} %}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+      
+      <div class="columns menu">
+        <div>
+        {% for m in site.data.menu %}
+          {% if m.page == "projects" %}
+            <li class="has-dropdown">
+              <a>{{m.name}}</a>
+              <ul>
+              {% for p in site.projects %}
+                <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+              {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li><a href="#{{ m.page }}">{{ m.name }}</a></li>
+          {% endif %}
+          {% if forloop.last != true %}
+            &nbsp;|&nbsp;
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+
+
+      <div class="columns project">
+        <div>
+          <div class="info">
+            <i class="fa fa-plus"></i>&nbsp;&nbsp;
+            {{ page.title }}
+          </div>
+          <a href="">
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+
+  <div class="footer">
+  </div>
+
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/foundation.min.js"></script>
+  <script src="/assets/js/code.js"></script>
+  <script type="text/javascript">
+  $(document).foundation();
+  </script>
+
+    
+  <script type="text/javascript">
+  $(function(){
+    $(".more").on('click', function(){
+      $(".home .page").fadeToggle();
+    })
+    $(".home .page .close").on('click', function(){
+      $(".home .page").fadeOut();
+    })
+  })
+  </script>
+
+
+
+
+</body>
+</html>

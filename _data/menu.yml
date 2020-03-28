@@ -1,0 +1,6 @@
+- name: "PROJETOS"
+  page: projects
+- name: "SOBRE"
+  page: about
+- name: "CONTATO"
+  page: contact

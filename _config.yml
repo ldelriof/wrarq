@@ -1,0 +1,12 @@
+---
+title: WRARQ
+timezone: GMT-3
+collections:
+  uploads:
+    title: Uploads
+    output: true
+  projects:
+    title: PROJETOS
+    output: true
+  menu:
+    label: menu

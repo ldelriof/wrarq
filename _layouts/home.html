@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+</head>
+<body>
+    <!-- {{ content }} -->
+<script type="text/javascript">   
+var is_root = location.pathname == "/";
+
+if(is_root) {
+let projs = []
+{% for p in site.projects %}
+projs.push("{{p.url}}")
+{% endfor %}
+
+console.log(projs)
+var proj = projs[Math.floor(Math.random() * projs.length)];
+window.location.href = proj;
+
+}
+</script>
+</body>
+</html>

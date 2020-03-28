@@ -8,17 +8,13 @@
     <!-- {{ content }} -->
 <script type="text/javascript">   
 var root = location.pathname;
-
 let projs = []
 {% for p in site.projects %}
-projs.push("{{p.url}}")
+projs.push("{{p.url | absolute_url }}")
 {% endfor %}
 
 var proj = projs[Math.floor(Math.random() * projs.length)]
-if(root != '/') {
-    proj = root + proj
-}
-window.location.href = '.' + proj
+window.location.href = proj
 </script>
 </body>
 </html>

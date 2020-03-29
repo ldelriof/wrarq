@@ -14,11 +14,16 @@ if (window.netlifyIdentity) {
         window.netlifyIdentity.on("login", () => {
           document.location.href = "{{ '/admin/' | absolute_url }}";
         })
+        window.netlifyIdentity.on("close", redirect_proj)
       }
     })
 } 
 
 if (!document.location.hash) {
+  redirect_proj()
+}
+
+function redirect_proj() {
   let projs = []
   {% for p in site.projects %}
   projs.push("{{p.url | absolute_url }}")
@@ -26,7 +31,7 @@ if (!document.location.hash) {
 
   var proj = projs[Math.floor(Math.random() * projs.length)]
   window.location.href = proj
-} 
+}
 
 </script>
 </body>

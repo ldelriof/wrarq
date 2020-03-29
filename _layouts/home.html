@@ -14,7 +14,7 @@ if (window.netlifyIdentity) {
         window.netlifyIdentity.on("login", () => {
           document.location.href = "{{ '/admin/' | absolute_url }}";
         })
-        window.netlifyIdentity.on("close", redirect_proj)
+        window.netlifyIdentity.on("close", () => redirect_proj() )
       }
     })
 } 

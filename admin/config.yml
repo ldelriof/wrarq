@@ -10,4 +10,11 @@ collections:
     folder: '_projects/'
     fields:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'default' }
+      - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: "Gallery",
+          name: "images",
+          widget: "list",
+          field: { label: Image, name: image, widget: image }
+        }

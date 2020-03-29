@@ -3,19 +3,28 @@
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <!-- {{ content }} -->
 <script type="text/javascript">   
-var root = location.pathname;
-let projs = []
-{% for p in site.projects %}
-projs.push("{{p.url | absolute_url }}")
-{% endfor %}
+if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+} else {
+    var root = location.pathname;
+    let projs = []
+    {% for p in site.projects %}
+    projs.push("{{p.url | absolute_url }}")
+    {% endfor %}
 
-var proj = projs[Math.floor(Math.random() * projs.length)]
-// window.location.href = proj
+    var proj = projs[Math.floor(Math.random() * projs.length)]
+    window.location.href = proj
+} 
 </script>
 </body>
 </html>

@@ -12,24 +12,21 @@ if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {
         window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
+          document.location.href = "{{ '/admin/' | absolute_url }}";
+        })
       }
-    }, redirect_proj());
-} else {
-    redirect_proj()
+    })
+} 
+if (!window.netlifyIdentity.store.invite_token) {
+  let projs = []
+  {% for p in site.projects %}
+  projs.push("{{p.url | absolute_url }}")
+  {% endfor %}
+
+  var proj = projs[Math.floor(Math.random() * projs.length)]
+  window.location.href = proj
 } 
 
-function redirect_proj() {
-  var root = location.pathname;
-    let projs = []
-    {% for p in site.projects %}
-    projs.push("{{p.url | absolute_url }}")
-    {% endfor %}
-
-    var proj = projs[Math.floor(Math.random() * projs.length)]
-    window.location.href = proj
-}
 </script>
 </body>
 </html>

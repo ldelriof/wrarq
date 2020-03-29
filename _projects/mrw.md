@@ -1,8 +1,8 @@
 ---
 layout: default
-title: MRW
+title: EDIFICI TANGER
 images:
-  - /uploads/30MRW00.jpg
-  - /uploads/33MRW02.jpg
+  - /uploads/10PATIO_ENTRADA.jpg
+  - /uploads/34TANGER07.jpg
 ---
-BARCELONA 2010
+BARCELONA 2008

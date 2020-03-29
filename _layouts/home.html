@@ -16,16 +16,15 @@ if (window.netlifyIdentity) {
         });
       }
     });
-} else {
-    var root = location.pathname;
-    let projs = []
-    {% for p in site.projects %}
-    projs.push("{{p.url | absolute_url }}")
-    {% endfor %}
+}
+var root = location.pathname;
+let projs = []
+{% for p in site.projects %}
+projs.push("{{p.url | absolute_url }}")
+{% endfor %}
 
-    var proj = projs[Math.floor(Math.random() * projs.length)]
-    window.location.href = proj
-} 
+var proj = projs[Math.floor(Math.random() * projs.length)]
+window.location.href = proj
 </script>
 </body>
 </html>

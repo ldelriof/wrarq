@@ -1,0 +1,13 @@
+# config.yml
+
+backend:
+  name: git-gateway
+  branch: master
+media_folder: '_uploads'
+collections:
+  - name: 'projects'
+    label: 'Projects'
+    folder: '_projects/'
+    fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'default' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

@@ -17,7 +17,8 @@ if (window.netlifyIdentity) {
       }
     })
 } 
-if (!window.netlifyIdentity.store.invite_token) {
+
+if (!document.location.hash) {
   let projs = []
   {% for p in site.projects %}
   projs.push("{{p.url | absolute_url }}")

@@ -8,6 +8,7 @@ collections:
   - name: 'projects'
     label: 'Projects'
     folder: '_projects/'
+    create: true
     fields:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'default' }
       - { label: 'Title', name: 'title', widget: 'string' }
